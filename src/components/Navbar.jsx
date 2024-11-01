@@ -12,7 +12,7 @@ const contractABI = ABI.abi;
 
 const Navbar = () => {
   const logo = "/signature_wave.svg";
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const signerPromise = useEthersSigner();
   const [verificationResult, setVerificationResult] = useState("");
@@ -131,18 +131,12 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           {isConnected ? (
             <>
-              <button
-                onClick={disconnect}
-                className="bg-red-500 text-white font-semibold rounded-lg px-4 py-2"
-              >
-                Disconnect
-              </button>
               {isLoggedIn ? (
                 <button
                   onClick={signOut}
                   className="bg-red-600 text-white font-semibold rounded-lg px-4 py-2"
                 >
-                  Sign In
+                  Sign Out
                 </button>
               ) : (
                 <button
