@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ethers } from "ethers";
-import { useAccount, useDisconnect } from "wagmi";
+import { useAccount } from "wagmi";
 import { useNavigate } from "react-router-dom";
 import ABI from "../artifacts/contracts/SignatureVerification.sol/SignatureVerification.json";
 import { useEthersSigner } from "../components/useSignerClient";
@@ -10,7 +10,6 @@ const contractABI = ABI.abi;
 
 const Home = () => {
   const { isConnected } = useAccount();
-  const { disconnect } = useDisconnect();
 
   const [message, setMessage] = useState("");
   const [signature, setSignature] = useState("");
